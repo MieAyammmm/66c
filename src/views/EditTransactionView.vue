@@ -17,7 +17,7 @@ const saveData = async () => {
     category: category.value,
   });
 
-  const response = await fetch(`/transactions/${id}`, {
+  const response = await fetch(`/api/transactions/${id}`, {
     method: "PUT",
     body: transaction,
   });
@@ -27,7 +27,7 @@ const saveData = async () => {
 };
 
 onMounted(() => {
-  fetch(`/transactions/${id}`)
+  fetch(`/api/transactions/${id}`)
     .then((response) => response.json())
     .then((data) => {
       name.value = data.name;

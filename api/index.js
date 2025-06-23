@@ -6,19 +6,19 @@ app.get("/api", (c) => {
   return c.text("hi");
 });
 
-app.get("/transactions", async (c) => {
+app.get("/api/transactions", async (c) => {
   let { results } = await c.env.DB.prepare("SELECT * FROM transactions").all();
   return c.json(results);
 });
 
-app.post("/transactions", async (c) => {
+app.post("/api/transactions", async (c) => {
   const input = await c.req.json();
-  const query = `INSERT INTO transactions(name,price,category) values ("${input.name}","${input.price}",${input.category})`;
+  const query = `INSERT INTO transactions(name,price,category) values ("${input.name}","${input.price}","${input.category}")`;
   const newData = await c.env.DB.exec(query);
   return c.json(newData);
 });
 
-app.get("/transactions/:id", async (c) => {
+app.get("/api/transactions/:id", async (c) => {
   const id = c.req.param("id");
   let { results } = await c.env.DB.prepare(
     "SELECT * FROM transactions WHERE id = ?"
@@ -28,15 +28,15 @@ app.get("/transactions/:id", async (c) => {
   return c.json(results[0]);
 });
 
-app.put("/transactions/:id", async (c) => {
+app.put("/api/transactions/:id", async (c) => {
   const id = c.req.param("id");
   const input = await c.req.json();
 
-  const query = `UPDATE transactions SET name = "${input.name}", price = "${input.price}" WHERE id = "${id}", category = "${input.category}" WHERE id = "${id}"`;
+  const query = `UPDATE transactions SET name = "${input.name}", price = "${input.price}", category = "${input.category}" WHERE id = "${id}"`;
   const data = await c.env.DB.exec(query);
   return c.json(data);
 });
-app.delete("/transactions/:id", async (c) => {
+app.delete("/api/transactions/:id", async (c) => {
   const id = c.req.param("id");
 
   const query = `DELETE FROM transactions WHERE id = "${id}"`;

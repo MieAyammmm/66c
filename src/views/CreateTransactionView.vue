@@ -6,17 +6,18 @@ const router = useRouter();
 
 const name = ref("");
 const price = ref(0);
+const category = ref("");
 
 const saveData = async () => {
-  const newProduct = JSON.stringify({
+  const newTransaction = JSON.stringify({
     name: name.value,
     price: price.value,
     category: category.value,
   });
 
-  const response = await fetch("/transactions", {
+  const response = await fetch("/api/transactions", {
     method: "POST",
-    body: newProduct,
+    body: newTransaction,
   });
   const data = await response.json();
 

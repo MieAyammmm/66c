@@ -4,9 +4,9 @@ import { onMounted, ref } from "vue";
 const transactions = ref([]);
 
 const fetchTransactions = async () => {
-  const response = await fetch("/transactions");
+  const response = await fetch("/api/transactions");
   const data = await response.json();
-  products.value = data;
+  transactions.value = data;
 };
 
 onMounted(() => {
@@ -14,11 +14,11 @@ onMounted(() => {
 });
 
 const removeTransaction = async (id) => {
-  const response = await fetch(`/transactions/${id}`, {
+  const response = await fetch(`/api/transactions/${id}`, {
     method: "DELETE",
   });
   if (response.ok) {
-    fetchProducts();
+    fetchTransactions();
   }
 };
 </script>
@@ -41,7 +41,7 @@ const removeTransaction = async (id) => {
             >
           </div>
           <div>
-            <button @click="removeTransaction(product.id)">
+            <button @click="removeTransaction(transaction.id)">
               Hapus Catatan
             </button>
           </div>
