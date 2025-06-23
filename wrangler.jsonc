@@ -5,5 +5,12 @@
     "binding": "ASSETS",
     "not_found_handling": "single-page-application"
   },
-  "main": "./api/index.js"
+  "main": "./api/index.js",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "66c",
+      "database_id": "5e3f96a4-3396-4bc3-bb4f-787809ca41fa"
+    }
+  ]
 }
