@@ -59,9 +59,9 @@
           <p>Bisa digunakan lewat laptop maupun HP.</p>
         </div>
         <div>
-          <div class="text-4xl mb-4">🔐</div>
-          <h4 class="font-bold mb-2">Privasi Aman</h4>
-          <p>Semua data hanya tersimpan di perangkatmu.</p>
+          <div class="text-4xl mb-4">⚙️</div>
+          <h4 class="font-bold mb-2">Tanpa Ribet</h4>
+          <p>Langsung pakai tanpa perlu akun atau login.</p>
         </div>
       </div>
     </section>
