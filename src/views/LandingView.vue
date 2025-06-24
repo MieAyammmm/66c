@@ -116,7 +116,7 @@
     <footer
       class="py-6 text-center text-sm text-gray-500 bg-white w-full max-w-7xl mx-auto px-4 sm:px-6"
     >
-      <p>&copy; 2025 DompetKita. Dibuat dengan Vue.js dan ❤️ di Indonesia.</p>
+      <p>&copy; 2025 DompetKita. Dibuat dengan ❤️ di .</p>
     </footer>
   </div>
 </template>
