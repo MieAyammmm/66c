@@ -10,7 +10,9 @@
       >
         <a href="#fitur" class="hover:text-blue-600">Fitur</a>
         <a href="#cara-kerja" class="hover:text-blue-600">Cara Kerja</a>
-        <a href="#tentang" class="hover:text-blue-600">Tentang</a>
+        <router-link to="/about" class="hover:text-blue-600"
+          >Tentang</router-link
+        >
         <router-link
           to="/home"
           class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
@@ -130,5 +132,12 @@ export default {
 <style scoped>
 body {
   font-family: "Inter", sans-serif;
+}
+.router-link {
+  @apply hover:text-blue-600; /* Tailwind class */
+}
+/* atau */
+.router-link-exact-active {
+  @apply font-semibold; /* Style saat halaman aktif */
 }
 </style>
