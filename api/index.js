@@ -98,6 +98,8 @@ app.delete("/api/transactions/:id", async (c) => {
   return c.json(data);
 });
 
-app.get("*", (c) => c.env.ASSETS.fetch(c.req.raw));
+app.get("*", async (c) => {
+  return await c.env.ASSETS.fetch(c.req.raw);
+});
 
 export default app;
