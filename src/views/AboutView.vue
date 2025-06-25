@@ -45,10 +45,11 @@
               <span class="mr-2">💡</span> Apa Itu DompetKita?
             </h3>
             <p class="text-gray-700 leading-relaxed">
-              DompetKita adalah aplikasi pencatatan pengeluaran sederhana yang
-              membantu kamu mengelola keuangan sehari-hari tanpa ribet. Dibangun
-              dengan Vue.js, aplikasi ini menyimpan data langsung di browser
-              (localStorage) sehingga tidak perlu login atau instalasi.
+              DompetKita adalah aplikasi pencatatan pengeluaran berbasis web
+              yang menyimpan data secara aman di database cloud. Dibangun dengan
+              Vue.js dan backend Cloudflare Workers, aplikasi ini memungkinkan
+              Anda mengelola keuangan tanpa perlu instalasi, dengan opsi login
+              sederhana untuk akses multi-perangkat.
             </p>
           </div>
 
