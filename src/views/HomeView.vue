@@ -82,6 +82,21 @@ const total = computed(() => {
           <p class="text-sm text-gray-500">Kategori:</p>
           <p class="italic text-gray-700">{{ transaction.category }}</p>
         </div>
+        <div class="mb-4">
+          <p class="text-sm text-gray-500">Tanggal:</p>
+          <p class="text-gray-600">
+            {{
+              transaction.date
+                ? new Date(transaction.date).toLocaleDateString("id-ID", {
+                    day: "2-digit",
+                    month: "long",
+                    year: "numeric",
+                  })
+                : "Tanggal tidak tersedia"
+            }}
+          </p>
+        </div>
+
         <div class="flex space-x-2">
           <RouterLink
             :to="`/transactions/${transaction.id}`"
