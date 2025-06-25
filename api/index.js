@@ -62,10 +62,12 @@ app.post("/api/transactions", async (c) => {
   const input = await c.req.json();
   const today = new Date().toISOString().slice(0, 10); // format "YYYY-MM-DD"
 
-  const query = `INSERT INTO transactions(name,price,category,date) 
-                 VALUES ("${input.name}","${input.price}","${input.category}","${today}")`;
+  const query = `INSERT INTO transactions(name, price, category, date) VALUES (?, ?, ?, ?)`;
 
-  const newData = await c.env.DB.exec(query);
+  const newData = await c.env.DB.prepare(query)
+    .bind(input.name, input.price, input.category, today)
+    .run();
+
   return c.json(newData);
 });
 

@@ -9,18 +9,25 @@ const price = ref(0);
 const category = ref("");
 
 const saveData = async () => {
-  const newTransaction = JSON.stringify({
-    name: name.value,
-    price: price.value,
-    category: category.value,
-  });
-
   const response = await fetch("/api/transactions", {
     method: "POST",
-    body: newTransaction,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: name.value,
+      price: price.value,
+      category: category.value,
+    }),
   });
-  const data = await response.json();
 
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error("Gagal menyimpan:", errorText);
+    return;
+  }
+
+  const data = await response.json();
   router.push("/home");
 };
 </script>
